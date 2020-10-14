@@ -5,7 +5,7 @@ let d = new Date();
 let month = d.getMonth()+1;
 let newDate = d.getDate()+'.'+month+'.'+ d.getFullYear();
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-const APIkey = '&appid=f5aa083b4d9009b2725d0dce7ce28585';
+const APIkey = '&appid=f5aa083b4d9009b2725d0dce7ce28585&units=imperial';
 
 document.getElementById('generate').addEventListener('click',performAction);
 
@@ -64,7 +64,7 @@ async function UpdateUI(){
         const Data = await response.json();
         //console.log(Data);
         document.getElementById('date').innerHTML ='Date :  '+ Data.date;
-        document.getElementById('temp').innerHTML ='Temperature :  '+ Data.temp;
+        document.getElementById('temp').innerHTML ='Temperature in Fahrenheit:  '+ Data.temp;
         document.getElementById('content').innerHTML ='Your_Feeling :  '+ Data.content;
     }catch(error){
         console.log('error :' + error);
